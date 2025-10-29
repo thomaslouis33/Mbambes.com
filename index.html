@@ -13,7 +13,7 @@
             
             <div class="age-gate-logo">
                 <img 
-                    src="mbambes.com" 
+                    src="/mbambes-icon-red.png" 
                     alt="Logo MbaMbes Icône Seins" 
                     class="age-gate-icon"
                 />
@@ -21,6 +21,7 @@
                     <span class="logo-name-red">MbaMbes</span><span class="logo-name-green">.com</span>
                 </div>
             </div>
+            
             <h1>Vérification de l'âge</h1>
             <p>Ce site contient du contenu pour adultes. Vous devez avoir 18 ans ou plus pour y accéder.</p>
             <div class="age-gate-buttons">
@@ -31,7 +32,56 @@
     </div>
 
     <div class="main-content" id="mainContent" style="display: none;">
-        <h1>Contenu principal de MbaMbes.com</h1>
+        
+        <header class="main-header">
+            <div class="header-content">
+                <div class="logo-header">
+                    <img src="/mbambes-icon-red.png" alt="Logo" class="logo-icon-header"/>
+                    <span class="logo-text-header">MbaMbes.com</span>
+                </div>
+                <div class="search-bar">
+                    <input type="text" placeholder="Rechercher...">
+                </div>
+                <nav class="main-nav">
+                    <span>Messagerie</span>
+                    <span>Alertes</span>
+                    <span>Mon Compte</span>
+                </nav>
+            </div>
+        </header>
+
+        <main class="main-container">
+            <section class="stories-bar">
+                <div class="story-bubble profile-add">+</div>
+                <div class="story-bubble"></div>
+                <div class="story-bubble"></div>
+                <div class="story-bubble"></div>
+                <div class="story-bubble"></div>
+            </section>
+
+            <section class="feed">
+                <article class="post">
+                    <div class="post-header">
+                        <img src="avatar.jpg" alt="avatar" class="post-avatar">
+                        <span class="post-username">NomDuCreateur</span>
+                        <span class="pro-badge-bleu"></span> 
+                    </div>
+                    <div class="post-content">
+                        <video controls src="video.mp4" class="post-video"></video>
+                    </div>
+                    <div class="post-actions">
+                        <span>Like</span>
+                        <span>Commenter</span>
+                        <span>Partager</span>
+                    </div>
+                    <div class="post-comments">
+                        <p><strong>un_autre_user:</strong> Superbe vidéo !</p>
+                        <input class="comment-input" type="text" placeholder="Connectez-vous pour commenter..." disabled>
+                    </div>
+                </article>
+                </section>
+        </main>
+        
     </div>
 
     <script src="script.js"></script>
