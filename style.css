@@ -1,10 +1,34 @@
-/* Fichier: style.css (style de base pour le portail) */
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    background-color: #1a1a1a; /* Fond sombre */
-    color: #fff;
+/* ===================================== */
+/* VARIABLES ET STYLES GLOBAUX      */
+/* ===================================== */
+
+/* Définition de votre palette de couleurs */
+:root {
+    --color-bg: #000000;         /* Noir pur */
+    --color-surface: #1a1a1a;    /* Noir léger (pour les 'cartes') */
+    --color-text: #ffffff;
+    --color-text-muted: #aaa;
+    --color-primary: #ff0000;    /* Rouge MbaMbes */
+    --color-secondary: #00b300;  /* Vert MbaMbes */
+    --color-pro-badge: #007bff;   /* Bleu Pro */
+    --color-border: #333333;
 }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    background-color: var(--color-bg);
+    color: var(--color-text);
+}
+
+/* ===================================== */
+/* PARTIE 1 : PORTAIL D'ÂGE         */
+/* ===================================== */
 
 .age-gate-overlay {
     position: fixed;
@@ -12,7 +36,7 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
+    background-color: rgba(0, 0, 0, 0.95);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,24 +44,60 @@ body {
 }
 
 .age-gate-box {
-    background-color: #000;
-    border: 1px solid #ff0000; /* Touche de rouge */
-    padding: 40px;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-primary);
+    padding: 30px 40px;
     border-radius: 10px;
     text-align: center;
-    max-width: 400px;
-    box-shadow: 0 0 20px rgba(255, 0, 0, 0.3);
+    max-width: 450px;
+    width: 90%;
+    box-shadow: 0 0 25px rgba(255, 0, 0, 0.3);
 }
 
+/* C'est ici que le logo est "bien placé" */
 .age-gate-logo {
-    font-size: 24px;
-    font-weight: bold;
-    color: #ff0000;
-    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column; /* Icône au-dessus du texte */
+    margin-bottom: 25px;
+}
+
+/* C'est ici qu'on évite le "débordement" */
+.age-gate-icon {
+    width: 65px; /* Taille fixe pour l'icône */
+    height: auto;
+    margin-bottom: 8px;
+}
+
+.logo-name-container {
+    line-height: 1;
+}
+
+.logo-name-red {
+    font-size: 1.75rem; /* 28px */
+    font-weight: 700;
+    color: var(--color-primary);
+}
+
+.logo-name-green {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: var(--color-secondary);
+}
+
+.age-gate-box h1 {
+    font-size: 1.5rem; /* 24px */
+    margin-bottom: 10px;
+}
+
+.age-gate-box p {
+    font-size: 1rem; /* 16px */
+    color: var(--color-text-muted);
+    margin-bottom: 30px;
 }
 
 .age-gate-buttons {
-    margin-top: 30px;
     display: flex;
     flex-direction: column;
     gap: 15px;
@@ -47,14 +107,14 @@ body {
     padding: 15px;
     border: none;
     border-radius: 5px;
-    font-size: 16px;
+    font-size: 1rem;
     cursor: pointer;
     font-weight: bold;
     transition: all 0.3s ease;
 }
 
 #enterButton {
-    background-color: #ff0000; /* Rouge */
+    background-color: var(--color-primary);
     color: #fff;
 }
 #enterButton:hover {
@@ -62,9 +122,170 @@ body {
 }
 
 #exitButton {
-    background-color: #333;
-    color: #ccc;
+    background-color: var(--color-surface);
+    color: var(--color-text-muted);
+    border: 1px solid var(--color-border);
 }
 #exitButton:hover {
+    background-color: #333;
+}
+
+
+/* ===================================== */
+/* PARTIE 2 : PAGE D'ACCUEIL        */
+/* ===================================== */
+
+.main-header {
+    background-color: var(--color-surface);
+    border-bottom: 1px solid var(--color-border);
+    padding: 10px 20px;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 980px;
+    margin: 0 auto;
+}
+
+.logo-header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: var(--color-primary);
+}
+
+.logo-icon-header {
+    width: 35px; /* Plus petit pour l'en-tête */
+    height: auto;
+}
+
+.search-bar {
+    flex-grow: 1;
+    margin: 0 20px;
+}
+
+.search-bar input {
+    width: 100%;
+    max-width: 250px;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: var(--color-border);
+    border: 1px solid #555;
+    color: var(--color-text);
+}
+
+.main-nav {
+    display: flex;
+    gap: 20px;
+    font-size: 1.3rem; /* Pour les icônes */
+}
+.main-nav span { cursor: pointer; }
+
+
+.main-container {
+    max-width: 640px; /* Largeur type Instagram */
+    margin: 20px auto;
+    padding: 0 10px;
+}
+
+.stories-bar {
+    display: flex;
+    padding: 15px;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    margin-bottom: 20px;
+    gap: 15px;
+    overflow-x: auto; /* Pour scroll si bcp de stories */
+}
+
+.story-bubble {
+    width: 60px;
+    height: 60px;
+    flex-shrink: 0;
+    border-radius: 50%;
     background-color: #555;
+    border: 2px solid var(--color-secondary); /* Vert pour "non vue" */
+    cursor: pointer;
+}
+.story-bubble.profile-add {
+    background-color: #444;
+    border: none;
+    color: var(--color-text);
+    display: grid;
+    place-items: center;
+    font-size: 2rem;
+}
+
+.post {
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+.post-header {
+    display: flex;
+    align-items: center;
+    padding: 10px 15px;
+    gap: 10px;
+}
+.post-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: #555;
+}
+.post-username {
+    font-weight: bold;
+}
+
+.pro-badge-bleu {
+    width: 15px;
+    height: 15px;
+    background-color: var(--color-pro-badge);
+    border-radius: 50%;
+    margin-left: 5px;
+    /* Vous ajouterez une icône 'check' ici */
+}
+
+.post-video {
+    width: 100%;
+    display: block;
+    background-color: #000;
+}
+
+.post-actions {
+    padding: 10px 15px;
+    font-size: 1.5rem; /* Pour les icônes */
+    display: flex;
+    gap: 20px;
+}
+.post-actions span { cursor: pointer; }
+
+.post-comments {
+    padding: 0 15px 15px 15px;
+}
+.post-comments p {
+    margin-bottom: 10px;
+    font-size: 0.9rem;
+}
+
+.comment-input {
+    width: 100%;
+    background-color: var(--color-bg);
+    border: 1px solid var(--color-border);
+    color: var(--color-text);
+    padding: 10px;
+    border-radius: 5px;
+}
+.comment-input:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
 }
