@@ -3,17 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Bienvenue sur MbaMbes.com</title>
+    <title>MbaMbes.com - Le Hub de Contenu Premium</title>
     <link rel="stylesheet" href="style.css">
 </head>
-<body>
+<body class="dark-mode">
 
     <div class="age-gate-overlay" id="ageGate">
         <div class="age-gate-box">
-            
             <div class="age-gate-logo">
                 <img 
-                    src="mbambes.com" 
+                    src="/mbambes-icon-red.png" 
                     alt="Logo MbaMbes Icône Seins" 
                     class="age-gate-icon"
                 />
@@ -40,48 +39,138 @@
                     <span class="logo-text-header">MbaMbes.com</span>
                 </div>
                 <div class="search-bar">
-                    <input type="text" placeholder="Rechercher...">
+                    <input type="text" placeholder="Rechercher..." onfocus="navigate('search')"> 
                 </div>
                 <nav class="main-nav">
-                    <span>Messagerie</span>
-                    <span>Alertes</span>
-                    <span>Mon Compte</span>
+                    <span id="nav-feed" onclick="navigate('feed')" class="active">🏠 Flux</span>
+                    <span id="nav-search" onclick="navigate('search')">🔍 Explorer</span>
+                    <span id="nav-messages" onclick="navigate('messages')">✉️ Messages</span>
+                    <span id="nav-profile" onclick="navigate('profile')">👤 Compte</span>
                 </nav>
             </div>
         </header>
 
-        <main class="main-container">
-            <section class="stories-bar">
-                <div class="story-bubble profile-add">+</div>
-                <div class="story-bubble"></div>
-                <div class="story-bubble"></div>
-                <div class="story-bubble"></div>
-                <div class="story-bubble"></div>
+        <div class="page-view-container">
+
+            <section id="page-feed" class="page-view active">
+                <main class="main-container">
+                    <section class="stories-bar">
+                        <div class="story-bubble profile-add">+</div>
+                        <div class="story-bubble"></div>
+                        <div class="story-bubble"></div>
+                        <div class="story-bubble"></div>
+                        <div class="story-bubble"></div>
+                    </section>
+
+                    <section class="feed">
+                        <article class="post">
+                            <div class="post-header">
+                                <img src="avatar.jpg" alt="avatar" class="post-avatar">
+                                <span class="post-username">AmbreRosePro</span>
+                                <span class="pro-badge-bleu"></span> </div>
+                            <div class="post-content">
+                                <video controls src="video.mp4" class="post-video"></video>
+                            </div>
+                            <div class="post-actions">
+                                <span>❤️</span>
+                                <span>💬</span>
+                                <span>➡️</span>
+                                <span>⬇️</span> </div>
+                            <div class="post-comments">
+                                <p><strong>AmbreRosePro:</strong> Contenu exclusif pour vous. 🔥</p>
+                                <input class="comment-input" type="text" placeholder="Connectez-vous pour commenter..." disabled>
+                            </div>
+                        </article>
+                        </section>
+                </main>
+            </section>
+            
+            <section id="page-search" class="page-view">
+                <main class="main-container">
+                    <div class="explorer-search-bar">
+                        <input type="text" placeholder="Rechercher des vidéos, créateurs, Pro..." class="search-input-large">
+                    </div>
+                    
+                    <section class="trend-categories">
+                        <span class="category-tag">Populaire</span>
+                        <span class="category-tag">Nouveautés Pro</span>
+                        <span class="category-tag">#Amateur</span>
+                    </section>
+        
+                    <section class="content-grid">
+                        <div class="grid-item"><img src="thumb_1.jpg" alt="Vidéo" class="grid-thumbnail"></div>
+                        <div class="grid-item"><img src="thumb_2.jpg" alt="Vidéo" class="grid-thumbnail"></div>
+                        <div class="grid-item"><img src="thumb_3.jpg" alt="Photo" class="grid-thumbnail"></div>
+                        <div class="grid-item"><img src="thumb_4.jpg" alt="Vidéo" class="grid-thumbnail"></div>
+                        </section>
+                </main>
             </section>
 
-            <section class="feed">
-                <article class="post">
-                    <div class="post-header">
-                        <img src="avatar.jpg" alt="avatar" class="post-avatar">
-                        <span class="post-username">NomDuCreateur</span>
-                        <span class="pro-badge-bleu"></span> 
+            <section id="page-messages" class="page-view">
+                <main class="main-container dm-container">
+                    <aside class="conversation-list">
+                        <h2 class="list-title">Messages Privés</h2>
+                        <div class="contact-preview active">
+                            <img src="avatar_contact.jpg" alt="Avatar" class="contact-avatar">
+                            <div class="contact-info">
+                                <span class="contact-name">FanN°1</span>
+                                <p class="last-message">Vu, merci !</p>
+                            </div>
+                        </div>
+                    </aside>
+
+                    <section class="chat-window">
+                        <div class="chat-header">
+                            <img src="avatar_contact.jpg" alt="Avatar" class="chat-avatar">
+                            <span class="chat-username">FanN°1</span>
+                        </div>
+                        <div class="message-history">
+                            <div class="message received">Bonsoir ! Vous êtes en ligne ?</div>
+                            <div class="message sent">Oui, je viens de voir votre message.</div>
+                        </div>
+                        <div class="message-input-area">
+                            <input type="text" placeholder="Envoyer un message..." disabled>
+                            <button disabled>Envoyer</button>
+                        </div>
+                    </section>
+                </main>
+            </section>
+
+            <section id="page-profile" class="page-view">
+                <main class="main-container profile-page">
+                    <section class="profile-header-info">
+                        <img src="mon_avatar.jpg" alt="Ma photo de profil" class="profile-large-avatar">
+                        <div class="profile-details">
+                            <h2 class="profile-username">MonNomMbaMbes</h2>
+                            <span class="pro-badge-bleu">✅ PRO</span> 
+                            
+                            <div class="profile-stats">
+                                <span><strong>150</strong> Posts</span>
+                                <span><strong>5.2K</strong> Abonnés</span>
+                                <span><strong>12</strong> Abonnements</span>
+                            </div>
+                            
+                            <div class="profile-actions-buttons">
+                                <button class="edit-profile-btn">Modifier le Profil</button>
+                                <button class="upgrade-btn">Devenir PRO (2£/mois)</button> 
+                            </div>
+                            <p class="profile-bio">Mon compte officiel MbaMbes.com. Cliquez sur PRO pour le contenu débloqué.</p>
+                        </div>
+                    </section>
+
+                    <div class="profile-tabs">
+                        <span class="tab-link active">Posts</span>
+                        <span class="tab-link">Mes Likes</span>
+                        <span class="tab-link">Statistiques Pro</span>
                     </div>
-                    <div class="post-content">
-                        <video controls src="video.mp4" class="post-video"></video>
-                    </div>
-                    <div class="post-actions">
-                        <span>Like</span>
-                        <span>Commenter</span>
-                        <span>Partager</span>
-                    </div>
-                    <div class="post-comments">
-                        <p><strong>un_autre_user:</strong> Superbe vidéo !</p>
-                        <input class="comment-input" type="text" placeholder="Connectez-vous pour commenter..." disabled>
-                    </div>
-                </article>
-                </section>
-        </main>
-        
+
+                    <section class="content-grid profile-grid">
+                        <div class="grid-item">...</div>
+                        <div class="grid-item">...</div>
+                    </section>
+                </main>
+            </section>
+        </div>
     </div>
 
     <script src="script.js"></script>
